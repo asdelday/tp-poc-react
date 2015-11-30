@@ -3,3 +3,7 @@ body {
   padding: 0;
   background-color: #f2f2f2;
 }
+
+.App {
+  margin: 15px 0;
+}
