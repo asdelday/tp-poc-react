@@ -1,0 +1,68 @@
+/*
+ * Colors
+ * ========================================================================== */
+
+$white:                 #FFF;
+$black:                 #000;
+$gray-darker:           color(#000 lightness(+13.5%)); /* #222 */
+$gray-dark:             color(#000 lightness(+25%));   /* #404040 */
+$gray:                  color(#000 lightness(+33.5%)); /* #555 */
+$gray-light:            color(#000 lightness(+46.7%)); /* #777 */
+$gray-lighter:          color(#000 lightness(+93.5%)); /* #eee */
+$gray-super-light:      color(#000 lightness(+95.5%)); /* #f5f5f5 */
+
+$primary-color:         #f0141e;
+$primary-color-light:   color(#f0141e lightness(+10%));
+$primary-color-lighter: color(#f0141e lightness(+20%));
+$primary-color-dark:    color(#f0141e lightness(-10%));
+$primary-color-darker:  color(#f0141e lightness(-20%));
+
+/*
+ * Typography
+ * ========================================================================== */
+
+$font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+$font-color-base:       $gray-darker;
+$font-size-base:        14px;
+$line-height-base:      20px;
+
+/*
+ * Layout
+ * ========================================================================== */
+
+$max-content-width:     1000px;
+$default-separation:    15px;
+
+/*
+ * Media queries breakpoints
+ * ========================================================================== */
+
+$extra-small-screen-up: 481px !default;
+$small-screen-up:       601px !default;
+$medium-screen-up:      993px !default;
+$large-screen-up:       1201px !default;
+$extra-small-screen:    480px !default;
+$small-screen:          600px !default;
+$medium-screen:         992px !default;
+$large-screen:          1200px !default;
+
+$large-and-up:          "only screen and (min-width : #{$medium-screen-up})" !default;
+$medium-and-up:         "only screen and (min-width : #{$small-screen-up})" !default;
+$small-and-up:          "only screen and (min-width : #{$extra-small-screen-up})" !default;
+
+$extra-small-and-down:  "only screen and (max-width : #{$extra-small-screen})" !default;
+$small-and-down:        "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down:       "only screen and (max-width : #{$medium-screen})" !default;
+
+$extra-small-only:      "only screen and (min-width : 0px and (max-width : #{$extra-small-screen})" !default;
+$small-only:            "only screen and (min-width : #{$extra-small-screen-up}) and (max-width : #{$small-screen})" !default;
+$medium-only:           "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+$large-only:            "only screen and (min-width : #{$medium-screen-up})" !default;
+
+
+
+/*
+ * Animations
+ * ========================================================================== */
+
+$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;

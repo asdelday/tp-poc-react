@@ -6,15 +6,27 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const pkg = require('./package.json');
 const Clean = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'src');
-const BOOTSTRAP_PATH = path.resolve(ROOT_PATH, 'node_modules/bootstrap');
+const NORMALIZE_CSS_PATH = path.resolve(ROOT_PATH, 'node_modules/normalize.css');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 process.env.BABEL_ENV = TARGET;
+
+const AUTOPREFIXER_BROWSERS = [
+  'Android 2.3',
+  'Android >= 4',
+  'Chrome >= 35',
+  'Firefox >= 31',
+  'Explorer >= 9',
+  'iOS >= 7',
+  'Opera >= 12',
+  'Safari >= 7.1',
+];
 
 var common = {
   resolve: {
@@ -46,10 +58,17 @@ if(TARGET === 'start' || !TARGET) {
       ],
       loaders: [
         { test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' },
-        { test: /\.css$/, loaders: ['style', 'css'], include: BOOTSTRAP_PATH },
-        { test: /\.css$/, loaders: ['style', 'css'], include: APP_PATH },
+        { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
+        { test: /\.scss$/, loaders: ['style', 'css', 'postcss'], include: APP_PATH },
         { test: /\.jsx?$/, loaders: ['react-hot', 'babel'], include: APP_PATH },
       ],
+    },
+    postcss: function (webpack) {
+      return [
+        require('postcss-import')({ addDependencyTo: webpack }),
+        require('precss')(),
+        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+      ];
     },
     plugins: [
       new HtmlwebpackPlugin({ title: 'Redux Boilerplate' }),
@@ -74,12 +93,20 @@ if ( TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
     module: {
       loaders: [
         { test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' },
-        { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css'), include: BOOTSTRAP_PATH },
-        { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css'), include: APP_PATH },
+        { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
+        { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css', 'postcss'), include: APP_PATH },
         { test: /\.jsx?$/, loaders: ['babel'], include: APP_PATH },
       ],
     },
+    postcss: function (webpack) {
+      return [
+        require('postcss-import')({ addDependencyTo: webpack }),
+        require('precss')(),
+        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+      ];
+    },
     plugins: [
+      new AssetsPlugin({filename: 'assets.json', prettyPrint: true}),
       new Clean(['build']), // clean build previous builds
       new ExtractTextPlugin('styles.[chunkhash].css'), // separate styles of app.js
       new webpack.optimize.CommonsChunkPlugin( 'vendor', '[name].[chunkhash].js' ), // separate vendor and app

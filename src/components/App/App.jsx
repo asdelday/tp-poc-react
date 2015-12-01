@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import style from './App.css'; // eslint-disable-line no-unused-vars
-import Form from '../Form';
-import ThumbnailList from '../ThumbnailList';
+import style from './App.scss'; // eslint-disable-line no-unused-vars
+import Navigation from '../Navigation';
+import HeroBox from '../HeroBox';
 
 class App extends Component {
 
@@ -15,22 +15,12 @@ class App extends Component {
 
   render() {
     const data = this.props.data || {};
-    const badge = data.badge || {};
-    const thumbnailList = data.thumbnailList || {};
+    const heroes = data.heroes || {};
 
     return (
       <div className="App">
-        <div className="container">
-          <div className="row">
-            <div className="App-thumbnailListWrapper col col-sm-12">
-              <ThumbnailList list={ thumbnailList } />
-            </div>
-
-            <div className="col col-sm-12">
-              <Form badge={ badge } />
-            </div>
-          </div>
-        </div>
+        <Navigation />
+        <HeroBox heroes={ heroes } />
       </div>
     );
   }

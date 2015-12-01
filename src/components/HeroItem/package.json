@@ -1,0 +1,6 @@
+{
+  "name": "HeroItem",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HeroItem.jsx"
+}

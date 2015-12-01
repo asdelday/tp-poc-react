@@ -1,0 +1,17 @@
+@import "variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $gray-super-light;
+  font-family: $font-family-base;
+  font-size: $font-family-base;
+  color: $font-color-base;
+  line-height: $line-height-base;
+}
+
+.card {
+  background: $white;
+  border: solid 1px $gray-lighter;
+  box-shadow: 1px 1px 5px color($gray-lighter lightness(-10%));
+}
