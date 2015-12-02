@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react';
 import style from './HeroList.scss'; // eslint-disable-line no-unused-vars
 import HeroItem from '../HeroItem';
 
+const propTypes = {
+  list: PropTypes.array,
+};
+const defaultProps = {
+  list: [],
+};
+
 class HeroList extends Component {
-
-  static propTypes = {
-    list: PropTypes.array,
-  };
-
-  static defaultProps = {
-  };
 
   renderHeroList() {
     return this.props.list.map((heroItem) => {
@@ -33,5 +33,8 @@ class HeroList extends Component {
   }
 
 }
+
+HeroList.propTypes = propTypes;
+HeroList.defaultProps = defaultProps;
 
 export default HeroList;

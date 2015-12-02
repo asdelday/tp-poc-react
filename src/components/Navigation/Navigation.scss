@@ -4,4 +4,10 @@
   background-color: $gray-darker;
   color: $white;
   padding: $default-separation;
+
+  &-title {
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+  }
 }

@@ -1,5 +1,33 @@
 @import "../../variables.scss";
 
 .HeroItem {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: $default-separation;
 
+  @media $(medium-and-up) {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+
+  &-img {
+    max-width: 100%;
+    margin: 0 0 $default-separation 0;
+
+    @media $(medium-and-up) {
+      margin: 0 $default-separation 0 0;
+      max-height: 150px;
+      max-width: 150px;
+    }
+  }
+
+  &-title {
+    margin: 0 0 $default-separation;
+  }
+
+  &-content {
+    margin: 0;
+  }
 }

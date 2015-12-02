@@ -1,13 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import style from './HeroForm.scss'; // eslint-disable-line no-unused-vars
 
+const propTypes = {};
+const defaultProps = {};
+
 class HeroForm extends Component {
-
-  static propTypes = {
-  };
-
-  static defaultProps = {
-  };
 
   render() {
 
@@ -20,5 +17,8 @@ class HeroForm extends Component {
   }
 
 }
+
+HeroForm.propTypes = propTypes;
+HeroForm.defaultProps = defaultProps;
 
 export default HeroForm;

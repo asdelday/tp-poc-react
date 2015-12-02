@@ -5,18 +5,18 @@ import ReactDom from 'react-dom';
 import App from './components/App';
 
 ((window) => {
-  const thumbnail = {
-    imgUrl: 'http://formatjs.io/img/react.svg',
-    imgAlt: 'React Logo',
-    header: 'React',
-    content: 'A Javascript library for building user interfaces',
-  };
-
   const appData = {
+    navigation: {
+      title: 'Heroes',
+      items: [],
+    },
     heroes: {
-      list: [thumbnail, thumbnail, thumbnail, thumbnail, thumbnail, thumbnail, thumbnail, thumbnail],
+      initialList: [],
+      initialLimit: 100,
     },
   };
 
-  ReactDom.render(<App data={ appData } />, window.document.body);
+  const app = document.createElement('div');
+  window.document.body.appendChild(app);
+  ReactDom.render(<App data={ appData } />, app);
 })(window);
