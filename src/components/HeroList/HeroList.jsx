@@ -15,8 +15,7 @@ class HeroList extends Component {
     return this.props.list.map((heroItem) => {
       return (
         <div className="HeroList-heroItem col col-sm-12 col-md-6 col-lg-4">
-          <HeroItem imgUrl={ heroItem.imgUrl } imgAlt={ heroItem.imgAlt }
-                    header={ heroItem.header } content={ heroItem.content } />
+          <HeroItem hero={ heroItem } />
         </div>
       );
     });

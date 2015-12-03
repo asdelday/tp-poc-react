@@ -29,7 +29,6 @@ class HeroBox extends Component {
     const limitPartial = (limit && `?limit=${limit}`) || '';
 
     getHeroes(limitPartial).then((data) => {
-      console.log(data);
       this.setState({ heroList: data.data.results });
     });
   }

@@ -12,13 +12,12 @@
     justify-content: flex-start;
   }
 
-  &-img {
+  &-thumbnail {
     max-width: 100%;
     margin: 0 0 $default-separation 0;
 
     @media $(medium-and-up) {
       margin: 0 $default-separation 0 0;
-      max-height: 150px;
       max-width: 150px;
     }
   }
