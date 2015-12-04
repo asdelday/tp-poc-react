@@ -25,10 +25,13 @@ class HeroItem extends Component {
   }
 
   _renderInfoWrapper() {
+    const name = this.props.hero.name || '';
+    const description = this.props.hero.description || '';
+
     return (
       <div className="HeroItem-infoWrapper">
-        <h3 className="HeroItem-title">{ this.props.header }</h3>
-        <p className="HeroItem-content">{ this.props.content }</p>
+        { name && <h3 className="HeroItem-name">{ name }</h3> }
+        { description && <p className="HeroItem-description">{ description }</p> }
       </div>
     );
   }
