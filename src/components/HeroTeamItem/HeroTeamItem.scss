@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+.HeroTeamItem {
+  background: $white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  &-thumbnail {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    margin-right: $default-separation;
+    .Thumbnail-img { display: block; }
+  }
+
+  &-infoWrapper {
+    color: $primary-color;
+  }
+
+  &-actionsWrapper {
+    display: none;
+    margin: 0 $default-separation 0 auto;
+  }
+}

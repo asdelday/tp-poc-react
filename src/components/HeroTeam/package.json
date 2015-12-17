@@ -1,0 +1,6 @@
+{
+  "name": "HeroTeam",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HeroTeam.jsx"
+}

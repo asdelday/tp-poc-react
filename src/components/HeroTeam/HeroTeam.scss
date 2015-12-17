@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.HeroTeam {
+
+  &-wrapper {
+    background: $primary-color;
+    padding: $default-separation;
+  }
+
+  &-title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    color: $white;
+
+    &-countBadge {
+      background-color: $primary-color-darker;
+      padding: 4px 7px;
+      font-size: .75em;
+    }
+  }
+
+  &-list {
+    margin-top: $default-separation;
+  }
+
+}

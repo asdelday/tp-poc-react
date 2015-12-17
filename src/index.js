@@ -13,6 +13,8 @@ import App from './components/App';
     heroes: {
       initialList: [],
       initialLimit: 100,
+      initialHeroTeamTitle: 'My Heroes Team',
+      initialHeroTeamList: [],
     },
   };
 

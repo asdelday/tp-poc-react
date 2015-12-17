@@ -1,3 +1,29 @@
+@import "../../variables.scss";
+
 .HeroBox {
+  display: flex;
+  flex-flow: column nowrap;
+  @media $(large-and-up) {
+    flex-flow: row nowrap;
+  }
+
+  &-heroList {
+    margin: 0 $default-separation $default-separation;
+    order: 2;
+    @media $(large-and-up) {
+      margin: $default-separation 0 $default-separation $default-separation;
+      order: 1;
+    }
+  }
+
+  &-heroesTeam {
+    order: 1;
+    margin: $default-separation;
+    @media $(large-and-up) {
+      order: 2;
+      width: 350px;
+      min-width: 350px;
+    }
+  }
 
 }

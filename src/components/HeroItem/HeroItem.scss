@@ -16,6 +16,7 @@
     max-width: 100%;
     flex-basis: 100%;
     margin: 0 0 $default-separation 0;
+    .Thumbnail-img { display: block; }
 
     @media $(medium-and-up) {
       margin: 0 $default-separation 0 0;
@@ -30,6 +31,10 @@
     @media $(medium-and-up) {
       margin-top: 0;
     }
+  }
+
+  &-addAction, &-removeAction {
+    cursor: pointer;
   }
 
   &-name {
