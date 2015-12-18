@@ -89,3 +89,6 @@ npm run lint
 
 * [react](https://www.npmjs.com/package/react)
 * [react-dom](https://www.npmjs.com/package/react-dom)
+
+### TODO
+* Implement Redux
