@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const pkg = require('./package.json');
 const Clean = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
@@ -28,7 +27,20 @@ const AUTOPREFIXER_BROWSERS = [
   'Safari >= 7.1',
 ];
 
-var common = {
+const VENDOR_DEPENDENCIES = [
+  'classnames',
+  'history',
+  'immutable',
+  'jquery',
+  'normalize.css',
+  'react',
+  'react-dom',
+  'react-redux',
+  'react-router',
+  'redux',
+];
+
+const common = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
@@ -37,7 +49,7 @@ var common = {
 if(TARGET === 'start' || !TARGET) {
 
   module.exports = merge(common, {
-    entry: APP_PATH,
+    entry: APP_PATH + '/client.js',
     output: {
       path: BUILD_PATH,
       filename: 'bundle.js',
@@ -60,7 +72,7 @@ if(TARGET === 'start' || !TARGET) {
         { test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' },
         { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
         { test: /\.scss$/, loaders: ['style', 'css', 'postcss'], include: APP_PATH },
-        { test: /\.jsx?$/, loaders: ['react-hot', 'babel'], include: APP_PATH },
+        { test: /\.jsx?$/, loaders: ['react-hot', 'babel'], include: APP_PATH, exclude: '/node_modules/' },
       ],
     },
     postcss: function (webpack) {
@@ -71,7 +83,7 @@ if(TARGET === 'start' || !TARGET) {
       ];
     },
     plugins: [
-      new HtmlwebpackPlugin({ title: 'Redux Boilerplate' }),
+      new HtmlwebpackPlugin({ title: 'Heroes POC' }),
       new webpack.HotModuleReplacementPlugin(),
     ],
   });
@@ -83,8 +95,8 @@ if ( TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
   module.exports = merge(common, {
     devtool: 'source-map',
     entry: {
-      app: APP_PATH,
-      vendor: Object.keys(pkg.dependencies),
+      app: APP_PATH + '/client.js',
+      vendor: VENDOR_DEPENDENCIES,
     },
     output: {
       path: BUILD_PATH,
@@ -94,8 +106,8 @@ if ( TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
       loaders: [
         { test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' },
         { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
-        { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css', 'postcss'), include: APP_PATH },
-        { test: /\.jsx?$/, loaders: ['babel'], include: APP_PATH },
+        { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss'), include: APP_PATH },
+        { test: /\.jsx?$/, loaders: ['babel'], include: APP_PATH, exclude: '/node_modules/' },
       ],
     },
     postcss: function (webpack) {

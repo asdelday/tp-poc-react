@@ -1,2 +1,2 @@
 --compilers js:babel-core/register,css:tools/css-null-compiler.js --recursive
-@(src)/**/*-test.js*
+@(src)/**/*-test.@(js|jsx)

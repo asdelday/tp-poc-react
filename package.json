@@ -64,17 +64,22 @@
   },
   "dependencies": {
     "classnames": "^2.2.1",
+    "express": "^4.13.3",
+    "history": "^1.17.0",
+    "immutable": "^3.7.6",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.1",
+    "react-router": "^1.0.2",
     "redux": "^3.0.5"
   },
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
     "build": "webpack",
     "start": "webpack-dev-server",
+    "server": "node server",
     "lint": "eslint src && jscs src",
     "deploy-gh-pages": "node ./tools/deploy-gh-pages.js",
     "test": "mocha --opts mocha.opts",

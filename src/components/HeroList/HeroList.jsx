@@ -4,10 +4,12 @@ import classnames from 'classnames';
 import HeroItem from '../HeroItem';
 
 const propTypes = {
-  list: PropTypes.array,
+  list: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
+  className: PropTypes.string,
   onAddHeroToTeam: PropTypes.func,
   onRemoveHeroToTeam: PropTypes.func,
-  className: PropTypes.string,
 };
 const defaultProps = {
   list: [],

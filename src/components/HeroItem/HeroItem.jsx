@@ -5,9 +5,9 @@ import Thumbnail from '../Thumbnail';
 
 const propTypes = {
   hero: PropTypes.object,
+  className: PropTypes.string,
   onAddHeroToTeam: PropTypes.func,
   onRemoveHeroToTeam: PropTypes.func,
-  className: PropTypes.string,
 };
 const defaultProps = {
   hero: {},
