@@ -3,15 +3,18 @@ import style from './HeroTeamList.scss'; // eslint-disable-line no-unused-vars
 import classnames from 'classnames';
 import HeroTeamItem from '../HeroTeamItem';
 
-const propTypes = {
-  list: PropTypes.array,
-  className: PropTypes.string,
-};
-const defaultProps = {
-  list: [],
-};
-
 class HeroTeamList extends Component {
+
+  static propTypes = {
+    list: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired).isRequired,
+    className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    list: [],
+  };
 
   renderHeroTeamList() {
     let heroTeamKey = '';
@@ -36,8 +39,5 @@ class HeroTeamList extends Component {
   }
 
 }
-
-HeroTeamList.propTypes = propTypes;
-HeroTeamList.defaultProps = defaultProps;
 
 export default HeroTeamList;

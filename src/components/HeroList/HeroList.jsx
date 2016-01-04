@@ -3,19 +3,20 @@ import style from './HeroList.scss'; // eslint-disable-line no-unused-vars
 import classnames from 'classnames';
 import HeroItem from '../HeroItem';
 
-const propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
-  className: PropTypes.string,
-  onAddHeroToTeam: PropTypes.func,
-  onRemoveHeroToTeam: PropTypes.func,
-};
-const defaultProps = {
-  list: [],
-};
-
 class HeroList extends Component {
+
+  static propTypes = {
+    list: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired).isRequired,
+    className: PropTypes.string,
+    onAddHeroToTeam: PropTypes.func,
+    onRemoveHeroToTeam: PropTypes.func,
+  };
+
+  static defaultProps = {
+    list: [],
+  };
 
   renderHeroList() {
     const onAddHeroToTeam = this.props.onAddHeroToTeam;
@@ -26,8 +27,8 @@ class HeroList extends Component {
       heroKey = 'heroItemKey-' + heroItem.id;
 
       return (
-          <HeroItem className="HeroList-item" key={ heroKey } hero={ heroItem }
-                    onAddHeroToTeam={ onAddHeroToTeam } onRemoveHeroToTeam={ onRemoveHeroToTeam } />
+        <HeroItem className="HeroList-item" key={ heroKey } hero={ heroItem }
+                  onAddHeroToTeam={ onAddHeroToTeam } onRemoveHeroToTeam={ onRemoveHeroToTeam } />
       );
     });
   }
@@ -43,8 +44,5 @@ class HeroList extends Component {
   }
 
 }
-
-HeroList.propTypes = propTypes;
-HeroList.defaultProps = defaultProps;
 
 export default HeroList;

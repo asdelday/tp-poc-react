@@ -2,17 +2,18 @@ import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 import style from './Thumbnail.scss'; // eslint-disable-line no-unused-vars
 
-const propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string,
-  className: PropTypes.string,
-};
-const defaultProps = {
-  imageUrl: '',
-  imageAlt: 'Thumbnail',
-};
-
 class Thumbnail extends Component {
+
+  static propTypes = {
+    imageUrl: PropTypes.string.isRequired,
+    imageAlt: PropTypes.string,
+    className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    imageUrl: '',
+    imageAlt: 'Thumbnail',
+  };
 
   render() {
     return (
@@ -23,8 +24,5 @@ class Thumbnail extends Component {
   }
 
 }
-
-Thumbnail.propTypes = propTypes;
-Thumbnail.defaultProps = defaultProps;
 
 export default Thumbnail;

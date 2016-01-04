@@ -1,16 +1,17 @@
 import React, { PropTypes, Component } from 'react';
 import style from './Navigation.scss'; // eslint-disable-line no-unused-vars
 
-const propTypes = {
-  title: PropTypes.string.isRequired,
-  items: PropTypes.array,
-};
-const defaultProps = {
-  title: '',
-  items: [],
-};
-
 class Navigation extends Component {
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    items: PropTypes.array,
+  };
+
+  static defaultProps = {
+    title: '',
+    items: [],
+  };
 
   render() {
     return (
@@ -21,8 +22,5 @@ class Navigation extends Component {
   }
 
 }
-
-Navigation.propTypes = propTypes;
-Navigation.defaultProps = defaultProps;
 
 export default Navigation;

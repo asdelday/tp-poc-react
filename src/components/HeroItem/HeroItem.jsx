@@ -3,17 +3,18 @@ import style from './HeroItem.scss'; // eslint-disable-line no-unused-vars
 import classnames from 'classnames';
 import Thumbnail from '../Thumbnail';
 
-const propTypes = {
-  hero: PropTypes.object,
-  className: PropTypes.string,
-  onAddHeroToTeam: PropTypes.func,
-  onRemoveHeroToTeam: PropTypes.func,
-};
-const defaultProps = {
-  hero: {},
-};
-
 class HeroItem extends Component {
+
+  static propTypes = {
+    hero: PropTypes.object,
+    className: PropTypes.string,
+    onAddHeroToTeam: PropTypes.func,
+    onRemoveHeroToTeam: PropTypes.func,
+  };
+
+  static defaultProps = {
+    hero: {},
+  };
 
   constructor(props) {
     super(props);
@@ -99,8 +100,5 @@ class HeroItem extends Component {
   }
 
 }
-
-HeroItem.propTypes = propTypes;
-HeroItem.defaultProps = defaultProps;
 
 export default HeroItem;

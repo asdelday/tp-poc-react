@@ -3,7 +3,7 @@
 const path = require('path');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const merge = require('lodash.merge');
 const Clean = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
@@ -42,7 +42,7 @@ const VENDOR_DEPENDENCIES = [
 
 const common = {
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
   },
 };
 
@@ -73,6 +73,8 @@ if(TARGET === 'start' || !TARGET) {
         { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
         { test: /\.scss$/, loaders: ['style', 'css', 'postcss'], include: APP_PATH },
         { test: /\.jsx?$/, loaders: ['react-hot', 'babel'], include: APP_PATH, exclude: '/node_modules/' },
+        { test: /\.json$/, loader: 'json-loader' },
+        { test: /\.txt$/, loader: 'raw-loader' },
       ],
     },
     postcss: function (webpack) {
@@ -108,6 +110,8 @@ if ( TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
         { test: /\.css$/, loaders: ['style', 'css'], include: NORMALIZE_CSS_PATH },
         { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss'), include: APP_PATH },
         { test: /\.jsx?$/, loaders: ['babel'], include: APP_PATH, exclude: '/node_modules/' },
+        { test: /\.json$/, loader: 'json-loader' },
+        { test: /\.txt$/, loader: 'raw-loader' },
       ],
     },
     postcss: function (webpack) {

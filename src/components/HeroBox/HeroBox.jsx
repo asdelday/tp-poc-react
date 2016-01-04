@@ -4,14 +4,15 @@ import HeroList from '../HeroList';
 import HeroTeam from '../HeroTeam';
 import { getHeroes } from '../../services';
 
-const propTypes = {
-  heroes: PropTypes.object,
-};
-const defaultProps = {
-  heroes: {},
-};
-
 class HeroBox extends Component {
+
+  static propTypes = {
+    heroes: PropTypes.object,
+  };
+
+  static defaultProps = {
+    heroes: {},
+  };
 
   constructor(props) {
     super(props);
@@ -68,8 +69,5 @@ class HeroBox extends Component {
   }
 
 }
-
-HeroBox.propTypes = propTypes;
-HeroBox.defaultProps = defaultProps;
 
 export default HeroBox;

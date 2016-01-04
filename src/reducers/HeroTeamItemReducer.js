@@ -3,7 +3,7 @@ import * as types from '../constants/ActionTypes';
 
 const defaultState = new Immutable.List();
 
-export function heroTeamReducer(state = defaultState, action) {
+export function heroTeamItemReducer(state = defaultState, action) {
   switch (action.type) {
     case types.ADD_HERO_TO_TEAM:
       return state.concat(action.hero);

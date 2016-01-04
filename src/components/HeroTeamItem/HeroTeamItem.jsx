@@ -3,16 +3,16 @@ import style from './HeroTeamItem.scss'; // eslint-disable-line no-unused-vars
 import classnames from 'classnames';
 import Thumbnail from '../Thumbnail';
 
-const propTypes = {
-  hero: PropTypes.object,
-  className: PropTypes.string,
-};
-const defaultProps = {
-  hero: {},
-};
-
 class HeroTeamItem extends Component {
 
+  static propTypes = {
+    hero: PropTypes.object,
+    className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    hero: {},
+  };
   // RENDER METHODS
   // ===================================================================================================================
 
@@ -55,8 +55,5 @@ class HeroTeamItem extends Component {
   }
 
 }
-
-HeroTeamItem.propTypes = propTypes;
-HeroTeamItem.defaultProps = defaultProps;
 
 export default HeroTeamItem;

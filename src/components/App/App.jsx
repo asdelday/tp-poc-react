@@ -3,14 +3,15 @@ import style from './App.scss'; // eslint-disable-line no-unused-vars
 import Navigation from '../Navigation';
 import HeroBox from '../HeroBox';
 
-const propTypes = {
-  data: PropTypes.object.isRequired,
-};
-const defaultProps = {
-  data: {},
-};
-
 class App extends Component {
+
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+  };
+
+  static defaultProps = {
+    data: {},
+  };
 
   render() {
     const data = this.props.data || {};
@@ -26,8 +27,5 @@ class App extends Component {
   }
 
 }
-
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
 
 export default App;
