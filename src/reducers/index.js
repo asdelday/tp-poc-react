@@ -1,3 +1,6 @@
-export { heroItemReducer } from './HeroItemReducer';
-export { heroListReducer } from './HeroListReducer';
-export { heroTeamListReducer } from './HeroTeamListReducer';
+// HEROES
+export { heroItem } from './heroItemReducer';
+export { heroList } from './heroListReducer';
+
+// NAVIGATION
+export { navigation } from './navigationReducer';

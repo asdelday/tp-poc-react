@@ -1,9 +1,9 @@
 import Immutable from 'immutable';
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/actionTypes';
 
 const defaultState = new Immutable.List();
 
-export function heroItemReducer(state = defaultState, action) {
+export function heroItem(state = defaultState, action) {
   switch (action.type) {
     case types.GET_HEROES:
       return state;

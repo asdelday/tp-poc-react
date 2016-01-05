@@ -1,11 +1,11 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/actionTypes';
 
 export function getHeroes() {
   return {
     type: types.GET_HEROES,
     date: Date.now(),
   };
-};
+}
 
 export function addHeroToTeam(hero) {
   return {
@@ -13,7 +13,7 @@ export function addHeroToTeam(hero) {
     hero,
     date: Date.now(),
   };
-};
+}
 
 export function removeHeroFromTeam(hero) {
   return {
@@ -21,4 +21,4 @@ export function removeHeroFromTeam(hero) {
     hero,
     date: Date.now(),
   };
-};
+}

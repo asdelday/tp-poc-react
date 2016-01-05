@@ -42,6 +42,7 @@ const VENDOR_DEPENDENCIES = [
 
 const common = {
   resolve: {
+    modulesDirectories: ['src', 'node_modules'],
     extensions: ['', '.js', '.jsx', '.json'],
   },
 };

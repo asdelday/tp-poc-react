@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import style from './HeroTeamItem.scss'; // eslint-disable-line no-unused-vars
 import classnames from 'classnames';
-import Thumbnail from '../Thumbnail';
+import { Thumbnail } from 'components';
 
 class HeroTeamItem extends Component {
 

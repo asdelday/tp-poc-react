@@ -4,8 +4,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './components/App';
-import * as reducers from './reducers';
+import { AppView } from 'containers';
+import * as reducers from 'reducers';
 
 ((window) => {
   const appData = {
@@ -32,7 +32,7 @@ import * as reducers from './reducers';
   }
   render(
     <Provider store={ appStore }>
-      <App data={ appData } />
+      <AppView />
     </Provider>,
     app
   );

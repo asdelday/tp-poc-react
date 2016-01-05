@@ -2,3 +2,6 @@
 export const GET_HEROES = 'GET_HEROES';
 export const ADD_HERO_TO_TEAM = 'ADD_HERO_TO_TEAM';
 export const REMOVE_HERO_FROM_TEAM = 'REMOVE_HERO_FROM_TEAM';
+
+// NAVIGATION
+export const SET_TITLE = 'SET_TITLE';

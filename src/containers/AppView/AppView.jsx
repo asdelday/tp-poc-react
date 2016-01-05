@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import { App } from 'components';
 
 class AppView extends Component {
-
-  static propTypes = {
-    children: PropTypes.object
-  };
 
   render() {
     return (
       <div id="app-view">
-        {this.props.children}
+        <App />
       </div>
     );
   }

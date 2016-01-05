@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import style from './HeroBox.scss'; // eslint-disable-line no-unused-vars
-import HeroList from '../HeroList';
-import HeroTeam from '../HeroTeam';
+import { HeroList, HeroTeam } from 'components';
 import { getHeroes } from '../../services';
 
 class HeroBox extends Component {
