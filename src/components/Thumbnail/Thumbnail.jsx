@@ -16,9 +16,11 @@ class Thumbnail extends Component {
   };
 
   render() {
+    const { imageUrl, imageAlt, className } = this.props;
+
     return (
-      <div className={ classnames(this.props.className, 'Thumbnail') }>
-        <img className="Thumbnail-img" src={ this.props.imageUrl } alt={ this.props.imageAlt } />
+      <div className={ classnames(className, 'Thumbnail') }>
+        <img className="Thumbnail-img" src={ imageUrl } alt={ imageAlt } />
       </div>
     );
   }

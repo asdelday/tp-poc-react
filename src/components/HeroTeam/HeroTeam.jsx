@@ -17,14 +17,16 @@ class HeroTeam extends Component {
   };
 
   render() {
+    const { title, list, className } = this.props;
+
     return (
-      <div className={ classnames(this.props.className, 'HeroTeam') }>
+      <div className={ classnames(className, 'HeroTeam') }>
         <div className="HeroTeam-wrapper">
           <h3 className="HeroTeam-title">
-            { this.props.title }
-            <div className="HeroTeam-title-countBadge">{ this.props.list.length }</div>
+            { title }
+            <div className="HeroTeam-title-countBadge">{ list && list.length }</div>
           </h3>
-          { (this.props.list.length > 0) && <HeroTeamList className="HeroTeam-list" list={ this.props.list } /> }
+          { (list && list.length > 0) && <HeroTeamList className="HeroTeam-list" list={ list } /> }
         </div>
       </div>
     );

@@ -14,9 +14,11 @@ class Navigation extends Component {
   };
 
   render() {
+    const { title } = this.props;
+
     return (
       <nav className="Navigation">
-        <h1 className="Navigation-title">{ this.props.title.toUpperCase() }</h1>
+        <h1 className="Navigation-title">{ title && title.toUpperCase() }</h1>
       </nav>
     );
   }

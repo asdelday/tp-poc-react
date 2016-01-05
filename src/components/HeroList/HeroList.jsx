@@ -19,11 +19,10 @@ class HeroList extends Component {
   };
 
   renderHeroList() {
-    const onAddHeroToTeam = this.props.onAddHeroToTeam;
-    const onRemoveHeroToTeam = this.props.onRemoveHeroToTeam;
+    const { onAddHeroToTeam, onRemoveHeroToTeam, list } = this.props;
     let heroKey = '';
 
-    return this.props.list.map((heroItem = {}) => {
+    return list.map((heroItem = {}) => {
       heroKey = 'heroItemKey-' + heroItem.id;
 
       return (

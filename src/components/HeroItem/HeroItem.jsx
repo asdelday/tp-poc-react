@@ -56,8 +56,7 @@ class HeroItem extends Component {
   }
 
   _renderInfoWrapper() {
-    const name = this.props.hero.name || '';
-    const description = this.props.hero.description || '';
+    const { name, description } = this.props.hero;
 
     return (
       <div className="HeroItem-infoWrapper">

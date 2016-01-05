@@ -55,9 +55,7 @@ class HeroBox extends Component {
   }
 
   render() {
-    const heroList = this.state.heroList || [];
-    const heroTeamTitle = this.state.heroTeamTitle || [];
-    const heroTeamList = this.state.heroTeamList || [];
+    const { heroList, heroTeamTitle, heroTeamList } = this.state;
 
     return (
       <div className="HeroBox">
