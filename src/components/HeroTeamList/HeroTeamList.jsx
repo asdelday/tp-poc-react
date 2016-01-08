@@ -10,6 +10,7 @@ class HeroTeamList extends Component {
       id: PropTypes.number.isRequired,
     }).isRequired).isRequired,
     className: PropTypes.string,
+    onRemoveHeroFromTeam: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -17,13 +18,15 @@ class HeroTeamList extends Component {
   };
 
   renderHeroTeamList() {
+    const { onRemoveHeroFromTeam } = this.props;
     let heroTeamKey = '';
 
     return this.props.list.map((heroTeamItem) => {
       heroTeamKey = 'heroTeamKey-' + heroTeamItem.id;
 
       return (
-        <HeroTeamItem key={ heroTeamKey } className="HeroTeamList-item" hero={ heroTeamItem } />
+        <HeroTeamItem key={ heroTeamKey } className="HeroTeamList-item" hero={ heroTeamItem }
+                      onRemoveHeroFromTeam={ onRemoveHeroFromTeam } />
       );
     });
   }

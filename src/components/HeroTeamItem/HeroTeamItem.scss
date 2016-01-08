@@ -20,7 +20,10 @@
   }
 
   &-actionsWrapper {
-    display: none;
     margin: 0 $default-separation 0 auto;
+  }
+
+  &-removeAction {
+    cursor: pointer;
   }
 }

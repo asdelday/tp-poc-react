@@ -8,11 +8,23 @@ class HeroTeamItem extends Component {
   static propTypes = {
     hero: PropTypes.object,
     className: PropTypes.string,
+    onRemoveHeroFromTeam: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     hero: {},
   };
+
+  constructor(props) {
+    super(props);
+    this.handleRemoveHero = this.handleRemoveHero.bind(this);
+  }
+
+  handleRemoveHero() {
+    const { onRemoveHeroFromTeam, hero } = this.props;
+    onRemoveHeroFromTeam(hero.id);
+  }
+
   // RENDER METHODS
   // ===================================================================================================================
 
@@ -39,7 +51,7 @@ class HeroTeamItem extends Component {
   _renderActionsWrapper() {
     return (
       <div className="HeroTeamItem-actionsWrapper">
-        <a href="#">Add</a>
+        <a className="HeroTeamItem-removeAction" onClick={ this.handleRemoveHero }>X</a>
       </div>
     );
   }

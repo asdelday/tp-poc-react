@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import style from './App.scss'; // eslint-disable-line no-unused-vars
-import { NavigationView } from 'containers';
-import { HeroBox } from 'components';
+import { NavigationView, HeroesView } from 'containers';
 
 class App extends Component {
 
@@ -14,13 +13,10 @@ class App extends Component {
   };
 
   render() {
-    const data = this.props.data || {};
-    const heroes = data.heroes || {};
-
     return (
       <div className="App">
         <NavigationView />
-        <HeroBox heroes={ heroes } />
+        <HeroesView />
       </div>
     );
   }

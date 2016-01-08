@@ -5,12 +5,13 @@ Proof of concept.
 
 ### Table of Contents
 1. [Installation](#installation)
-2. [Developing](#start)
-3. [Building](#building)
-   * 3.1. [Normal build](#build)
-   * 3.2. [Building with stats](#stats)
-4. [Linting](#lint)
-5. [Dependencies](#dependencies)
+2. [Server](#server)
+3. [Developing](#start)
+4. [Building](#building)
+   * 4.1. [Normal build](#build)
+   * 4.2. [Building with stats](#stats)
+5. [Linting](#lint)
+6. [Dependencies](#dependencies)
 
 ---
 
@@ -23,27 +24,42 @@ Install all the dependencies for the project.
 npm install
 ```
 
+<div id="server"></div>
+
+### 2. Server
+Compiles the source scripts and store the generated bundles at build folder then run de server.
+
+```
+npm start
+open http://localhost:8081
+```
+
+without compile the source scripts
+```
+npm run server
+open http://localhost:8081
+```
 
 <div id="start"></div>
 
-### 2. Developing
+### 3. Developing
 Creates a bundle and a develop server with the app and hot reload.
 
 It will create a linter watcher in es6 files.
 
 ```
-npm start
-open http://localhost:3000
+npm run dev
+open http://localhost:8080
 ```
 
 
 <div id="building"></div>
 
-### 3. Building
+### 4. Building
 
 <div id="build"></div>
 
-#### 3.1 Normal build
+#### 4.1 Normal build
 The build process will generate the minified files for a production enviroment. 
 These files will be saved into the build folder.
 
@@ -61,7 +77,7 @@ npm run build
 
 <div id="stats"></div>
 
-#### 3.2 Building with stats
+#### 4.2 Building with stats
 Building in this way, it will generate a **stats.json** file with webpack build details.
 
 These files can be uploaded to [webpack analyse tool](http://webpack.github.io/analyse/) 
@@ -73,7 +89,7 @@ npm run stats
 
 <div id="lint"></div>
 
-### 4. Linting
+### 5. Linting
 
 This boilerplate project includes React-friendly **ESLint** configuration.
 
@@ -85,7 +101,7 @@ npm run lint
 
 <div id="dependencies"></div>
 
-### 5. Dependencies
+### 6. Dependencies
 
 * [react](https://www.npmjs.com/package/react)
 * [react-dom](https://www.npmjs.com/package/react-dom)

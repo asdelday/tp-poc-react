@@ -1,6 +1,11 @@
-// HEROES
-export { heroItem } from './heroItemReducer';
-export { heroList } from './heroListReducer';
+import { combineReducers } from 'redux';
 
-// NAVIGATION
-export { navigation } from './navigationReducer';
+import heroes from './heroesReducer';
+import navigation from './navigationReducer';
+
+const rootReducer = combineReducers({
+  heroes,
+  navigation,
+});
+
+export default rootReducer;

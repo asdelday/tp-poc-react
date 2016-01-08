@@ -9,6 +9,7 @@ class HeroTeam extends Component {
     title: PropTypes.string,
     list: PropTypes.array,
     className: PropTypes.string,
+    onRemoveHeroFromTeam: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -17,7 +18,7 @@ class HeroTeam extends Component {
   };
 
   render() {
-    const { title, list, className } = this.props;
+    const { title, list, className, onRemoveHeroFromTeam } = this.props;
 
     return (
       <div className={ classnames(className, 'HeroTeam') }>
@@ -26,7 +27,8 @@ class HeroTeam extends Component {
             { title }
             <div className="HeroTeam-title-countBadge">{ list && list.length }</div>
           </h3>
-          { (list && list.length > 0) && <HeroTeamList className="HeroTeam-list" list={ list } /> }
+          { (list && list.length > 0) && <HeroTeamList className="HeroTeam-list" list={ list }
+                                                       onRemoveHeroFromTeam={ onRemoveHeroFromTeam } /> }
         </div>
       </div>
     );

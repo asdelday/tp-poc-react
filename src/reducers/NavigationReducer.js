@@ -6,7 +6,7 @@ const defaultState = new Immutable.Map({
   items: new Immutable.List(),
 });
 
-export function navigation(state = defaultState, action) {
+export default function navigation(state = defaultState, action) {
   switch (action.type) {
     case types.SET_TITLE:
       return state.set('title', action.title);

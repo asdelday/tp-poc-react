@@ -47,7 +47,7 @@ const common = {
   },
 };
 
-if(TARGET === 'start' || !TARGET) {
+if(TARGET === 'dev' || !TARGET) {
 
   module.exports = merge(common, {
     entry: APP_PATH + '/client.js',
@@ -93,7 +93,7 @@ if(TARGET === 'start' || !TARGET) {
 
 }
 
-if ( TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
+if ( TARGET === 'start' || TARGET === 'build' || TARGET === 'stats' || (/^deploy.*$/.test(TARGET)) ) {
 
   module.exports = merge(common, {
     devtool: 'source-map',
